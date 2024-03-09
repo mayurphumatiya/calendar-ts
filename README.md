@@ -68,6 +68,7 @@ dateHeight | Specifies the height of the date in calendar component | 5rem |
 currDateBg | Specifies the color of the current date and days in calendar component | pink
 
 
+
 # License
 
 THE ISC License.
