@@ -1,5 +1,8 @@
 # @mayurphumatiya/calendar-ts
 
+![image](https://github.com/mayurphumatiya/calendar-ts/assets/98944957/4afb8fe3-e020-4706-9a17-53d1c2b3a114)
+
+
 Calendar-ts is a visually stunning calendar solution that allows developers to effortlessly integrate eye-catching calendars into their projects. With customizable styles options, developers can tailor the look and feel to suit their needs perfectly. Seamlessly manage dates and perform operations with ease, making it the perfect tool for any project requiring a stylish and functional calendar interface.
 ## tl;dr
 
