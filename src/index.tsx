@@ -22,6 +22,7 @@ export const months = [
 ];
 
 interface CalendarProps {
+  getCurrDate: (selectedDate: Date) => void;
   bgcolor?: string;
   text?: string;
   borderWidth?: string;
