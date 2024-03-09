@@ -2,7 +2,8 @@
   "name": "@mayurphumatiya/calendar-ts",
   "version": "1.0.11",
   "description": "",
-  "homepage": "https://calendar-ts-three.vercel.app/",
+  "homepage": "https://github.com/mayurphumatiya/calendar-ts#readme",
+  "demo": "https://calendar-ts-three.vercel.app/",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
