@@ -2,7 +2,7 @@
   "name": "@mayurphumatiya/calendar-ts",
   "version": "1.0.10",
   "description": "",
-  "homepage": "https://your-website.com/your-package-demo",
+  "homepage": "https://calendar-ts-three.vercel.app/",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,5 +18,9 @@
   "devDependencies": {
     "@types/react": "^18.2.64",
     "tailwindcss": "^3.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mayurphumatiya/calendar-ts"
   }
 }
