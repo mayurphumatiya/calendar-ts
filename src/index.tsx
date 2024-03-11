@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./index.css";
 import cn from "./cn";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -54,10 +54,8 @@ export default function Calendar({
   };
 
   const currentDate = new Date();
-  const [today, setToday] = useState(currentDate);
-  const [selDate, setSelDate] = useState(0)
 
-  const generateDates = useCallback((year: number, month: number) => {
+  const generateDates = (year: number, month: number) => {
     const date = new Date();
     const firstDayOfMonth = new Date(year, month, 1);
     const startingDay = firstDayOfMonth.getDay(); // 0 for Sunday, 1 for Monday, etc.
@@ -78,11 +76,12 @@ export default function Calendar({
       arrOfDates.push({
         currentMonth: date.getMonth() === today.getMonth(),
         date: i,
-        isToday: today.getDate() === i,
+        isToday: date.getDate() === i,
       });
     }
     return arrOfDates;
-  },[today]);
+  };
+  const [today, setToday] = useState(currentDate);
 
   const nextMonth = () => {
     const nextMonthDate = new Date(
@@ -104,7 +103,6 @@ export default function Calendar({
 
   const fetchDate = (date: number) => {
     const selectedDate = new Date(today.getFullYear(), today.getMonth(), date);
-    setSelDate(date);
     return selectedDate;
   };
 
@@ -169,7 +167,7 @@ export default function Calendar({
                           "bg-pink-600 rounded text-white",
                         "h-10 w-10 grid place-content-center",
                         date !== null &&
-                          "rounded-full hover:bg-white hover:text-black cursor-pointer", (selDate === date) && "rounded-full bg-purple-300 text-black cursor-pointer"
+                          "rounded-full hover:bg-white hover:text-black cursor-pointer"
                       )}
                       style={{
                         backgroundColor:
