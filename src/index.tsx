@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react";
 import "./index.css";
 import cn from "./cn";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -32,7 +32,7 @@ interface CalendarProps {
 interface DateObject {
   currentMonth: boolean;
   date?: number | null;
-  today: boolean;
+  isToday: boolean;
 }
 
 export default function Calendar({
@@ -68,16 +68,15 @@ export default function Calendar({
       arrOfDates.push({
         currentMonth: false,
         date: null,
-        today: false,
+        isToday: false,
       });
     }
-
     // Fill in the days of the month
     for (let i = 1; i <= totalDaysInMonth; i++) {
       arrOfDates.push({
         currentMonth: date.getMonth() === today.getMonth(),
         date: i,
-        today: date.getDate() === i,
+        isToday: date.getDate() === i,
       });
     }
     return arrOfDates;
@@ -104,8 +103,12 @@ export default function Calendar({
 
   const fetchDate = (date: number) => {
     const selectedDate = new Date(today.getFullYear(), today.getMonth(), date);
-    return selectedDate
+    return selectedDate;
   };
+
+  useEffect(() => {
+    console.log(today);
+  }, [today]);
 
   return (
     <>
@@ -143,7 +146,7 @@ export default function Calendar({
               return (
                 <h1
                   className="grid place-content-center text-md"
-                  style={{color: currDateBg ? currDateBg : "#DB2777"}}
+                  style={{ color: currDateBg ? currDateBg : "#DB2777" }}
                   key={index}
                 >
                   {day}
@@ -153,7 +156,7 @@ export default function Calendar({
           </div>
           <div className="w-full grid grid-cols-7 ">
             {generateDates(today.getFullYear(), today.getMonth()).map(
-              ({ date, currentMonth, today }, index) => {
+              ({ date, currentMonth, isToday }, index) => {
                 return (
                   <div
                     key={index}
@@ -163,7 +166,7 @@ export default function Calendar({
                   >
                     <h1
                       className={cn(
-                        today &&
+                        isToday &&
                           currentMonth &&
                           "bg-pink-600 rounded text-white",
                         "h-10 w-10 grid place-content-center",
@@ -172,7 +175,7 @@ export default function Calendar({
                       )}
                       style={{
                         backgroundColor:
-                          today && currentMonth
+                          isToday && currentMonth
                             ? currDateBg
                               ? currDateBg
                               : "#DB2777"
